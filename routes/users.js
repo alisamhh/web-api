@@ -36,9 +36,10 @@ router.post('/add', (req, res) => {
     })
 })
 
-router.post('/add', (req, res) => {
+router.put('/:id/update', (req, res) => {
+  const id = Number(req.params.id)  
   const user = req.body
-  db.addUser(user)
+  db.updateUser(id, user)
     .then(user => {
       res.json({user: user})
     })
